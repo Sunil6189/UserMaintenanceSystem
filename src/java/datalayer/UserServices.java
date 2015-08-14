@@ -46,4 +46,30 @@ public class UserServices {
         
         return alstUser;
     }
+    public UserBean getUserDetailById(int userId)
+    {
+       
+        UserBean objBean=new UserBean();
+        
+        try
+        {
+             Connection con=ConnectDB.getConnection();
+           Statement stmt=con.createStatement();
+          ResultSet rs=stmt.executeQuery("select * from list where id="+userId);
+            if(rs.next())
+            {
+                objBean.setAge(rs.getInt("age"));
+                objBean.setUsername(rs.getString("username"));
+                objBean.setUserId(rs.getInt("id"));
+                objBean.setPassword(rs.getString("password"));
+                objBean.setStatus(rs.getString("status"));
+             }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception in getAllUserDetailById of userServices:"+e);
+        }
+       
+        return objBean;
+    }
     }
