@@ -14,7 +14,17 @@
     <body>
     
         <form name="frmAddUser" action="AddEditUserController.jsp" method="post">
-      
+      <%
+        String msg="";
+        if(session.getAttribute("msg")!=null)
+            {
+            msg=session.getAttribute("msg").toString();                          
+            }
+            %>
+            <%=msg%>
+        <%
+        session.removeAttribute("msg");
+        %>
             <table frame="border" align="center">
                 <tr>
                     <td colspan="2" align="center"><h4>Add User</h4><td>
