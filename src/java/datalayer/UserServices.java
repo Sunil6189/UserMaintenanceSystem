@@ -72,4 +72,25 @@ public class UserServices {
        
         return objBean;
     }
+    
+    public  String addUser(UserBean objBean)
+    {
+       
+       
+       String result ="failed";
+        try {
+          Connection   con = ConnectDB.getConnection();
+           Statement  stmt = con.createStatement();
+            String q = "insert into list(id,username,Password,Status,age)values('"+objBean.getUserId()+"','"+objBean.getUsername()+"','"+objBean.getPassword()+"','"+objBean.getStatus()+"','"+objBean.getAge()+"')";
+            int i = stmt.executeUpdate(q);
+            if(i>0)
+            {
+                result="saved";
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in getAllUserDetails of UserServices" + e);
+        } 
+     
+        return result;
+    }   
     }
