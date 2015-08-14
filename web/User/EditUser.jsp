@@ -14,7 +14,9 @@
         <title>Edit User</title>
     </head>
     <body>
-        
+         <% UserServices obj=new UserServices();
+            int userId=Integer.parseInt(request.getParameter("id"));
+         UserBean objBean=obj.getUserDetailById(userId);%>
         <form name="frmEditUser" action="AddEditUserController.jsp">
             <table frame="border" align="center">
                 <tr>
