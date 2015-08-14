@@ -1,7 +1,7 @@
 <%-- 
-    Document   : EditUser
+    Document   : DeleteUser
     Created on : 6/08/2015, 5:17:19 PM
-    Author     : Sunil.Bansal
+    Author     : Varghese.Mathew
 --%>
 
 <%@page import="beans.UserBean"%>
@@ -14,7 +14,10 @@
         <title>Edit User</title>
     </head>
     <body>
-        
+        <% UserServices obj=new UserServices();
+            int userId=Integer.parseInt(request.getParameter("id"));
+         UserBean objBean=obj.getUserDetailById(userId);%>
+ 
         <form name="frmDeleteUser" action="AddEditUserController.jsp" method="post">
             <table frame="border" align="center">
                 <tr>
