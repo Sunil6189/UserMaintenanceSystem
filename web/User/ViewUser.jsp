@@ -1,26 +1,3 @@
-<%-- 
-    Document   : ViewUser
-    Created on : 12/08/2015, 5:17:29 PM
-    Author     : Kiran.Benny
---%>
-
-<%@page import="beans.UserBean"%>
-<%@page import="datalayer.UserServices"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>View User</title>
-    </head>
-    <body>
-        
-      <form name="frmEditUser" action="#">
-      <%-- 
-    Document   : ViewUser
-    Created on : 6/08/2015, 5:17:29 PM
-    Author     : Sunil.Bansal
---%>
 
 <%@page import="beans.UserBean"%>
 <%@page import="datalayer.UserServices"%>
