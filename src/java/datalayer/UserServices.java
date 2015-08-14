@@ -93,4 +93,62 @@ public class UserServices {
      
         return result;
     }   
+     public  String editUser(UserBean objBean)
+    {
+       
+       String result ="failed";
+        try {
+          Connection con = ConnectDB.getConnection();
+                
+            String q = "update list SET username=?,Password=?,Status=?,age=? where id=?";
+             PreparedStatement ps = con.prepareStatement(q);
+          
+           
+           ps.setString(1, objBean.getUsername());
+           System.out.println(objBean.getUsername());
+            ps.setString(2, objBean.getPassword());
+            System.out.println(objBean.getPassword());
+             ps.setString(3, objBean.getStatus());
+             System.out.println("updated3");
+              ps.setInt(4, objBean.getAge());
+              System.out.println("updated4");
+               ps.setInt(5, objBean.getUserId());
+               System.out.println(objBean.getUserId());
+               int i = ps.executeUpdate();
+          //Statement stmt = con.createStatement();
+           // String q = "update list set username='"+objBean.getUsername()+"',Password='"+objBean.getPassword()+"',Status='"+objBean.getStatus()+"',age='"+objBean.getAge()+"' where id='"+objBean.getUserId()+"'";
+           //int i = stmt.executeUpdate(q);
+            if(i>0)
+            {
+                result="updated";
+                System.out.println("updated");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in getAllUserDetails of UserServices" + e);
+        } 
+         return result;
+        }
+    
+     public  String deleteUser(UserBean objBean)
+    {
+       
+       
+       String result ="failed";
+        try {
+          Connection   con = ConnectDB.getConnection();
+           Statement  stmt = con.createStatement();
+            String q = "delete from list where id=?";
+                PreparedStatement ps = con.prepareStatement(q);
+                ps.setInt(1, objBean.getUserId());
+            int i = ps.executeUpdate();
+            if(i>0)
+            {
+                result="deleted";
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in getAllUserDetails of UserServices" + e);
+        } 
+     
+        return result;
+    }   
     }
